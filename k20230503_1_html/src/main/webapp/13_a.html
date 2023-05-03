@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>하이퍼링크</title>
+
+<style type="text/css">
+
+	
+	a {
+		color: black;
+		text-decoration: none;
+	}
+	
+	a.btn {
+		width: 150px;
+		height: 50px;
+		background-color: skyblue;
+		/* inline-block: 줄이 변경되지 않지만, 크기를 가지는 요소 */
+		/* none: 브라우저에 표시하지 않는다. */
+		display: inline-block;
+		margin: 10px;
+		text-align: center; /* 텍스트 수평 가운데 정렬 */
+		line-height: 50px; /* 행 높이, 줄 간격 */
+		border-radius: 10px;
+		font-weight: bold;
+		transition-duration: 0.4s;
+	}
+	
+	a:hover { 
+		background-color: yellowgreen;
+	}
+	
+
+</style>
+
+</head>
+<body>
+
+<!-- 
+	<a> : <a> 태그는 href 속성을 통해 다른 페이지나 같은 페이지의 특정 위치(책갈피, 북마크)로 연결하는 하이퍼링크를 만든다.
+	
+	target 속성으로 하이퍼링크를 클릭했을 때, 연결되는 페이지가 표시되는 위치를 지정할 수 있다.
+		_self : 기본값, 현재창
+		_blank : 새창, 새탭
+	download 속성을 지정하면 하이퍼링크로 연결된 파일을 다운로드 할 수 있다.
+	href 속성에 현재 문서의 id를 지정하면 지정된 id 속성이 지정된 곳으로 이동한다.
+ -->
+ 
+ <a class="btn" href="https://www.google.com">Google 하이퍼링크1</a>
+ <a class="btn" href="https://www.google.com" target="_self">Google 하이퍼링크2</a>
+ <a class="btn" href="https://www.google.com" target="_blank">Google 하이퍼링크3</a>
+ <a class="btn" href="01_div_span.html">01_div_span.html</a>
+ <a class="btn" href="01_div_span.html">01_div_span.html</a>
+ <a class="btn" href="./images/me.png">me.png</a>
+ <a class="btn" href="./images/me.png" download>me.png</a>
+ 
+ <!-- 책갈피 기능 -->
+ <h1 id="main">목차</h1>
+ <ul>
+ 	<li>
+ 	<!-- href 속성에 현재 문서의 id를 지정하면 지정된 id로 이동한다.  -->
+ 		<a href="#title1">제목1</a>
+ 	</li>
+ 	
+ 	<li>
+		<a href="#title2">제목2</a>
+ 	</li>
+ </ul>
+ 
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <a href="#main">목록으로</a>
+ <h2 id="title1">제목1</h2>
+ 
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <a href="#main">목록으로</a>
+ <h2 id="title2">제목2</h2>
+ 
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <a href="#main">목록으로</a>
+ <h2 id="title3">제목3</h2>
+
+</body>
+</html>

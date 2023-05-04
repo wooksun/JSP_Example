@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>script</title>
+
+<!-- <script type="text/javascript">
+//	id 속성이 my-name으로 지정된 div 태그가 브라우저에 랜더링(표시)되기 전이므로 얻어올 수 없다.
+	const myName = document.getElementById('my-name');
+	console.log(myName); //null
+	console.log(myName.innerText); //에러
+</script> -->
+
+<!-- 외부 js 파일 가져오기 -->
+<script type="text/javascript" src="./js/21_script.js" defer="defer"></script>
+
+<!-- 
+	<script> 태그는 동작을 지정하는 스크립트 코드를 문서에 포함하거나 외부 파일을 참조한다.
+	type="text/javascript" 속성은 생략 가능하다.
+	src 속성으로 외부 스크립트 파일(*.js)의 url을 지정한다.
+	src 속성이 지정되면 <script> ~ </script> 사이의 스크립트 코드는 무시된다.
+	defer="defer" 속성은 문서의 모든 내용이 브라우저에 랜더링 된 후 자바스크립트를 읽는다.
+ -->
+
+</head>
+<body>
+
+<div id="my-name">
+	내 사이트!
+</div>
+
+<!-- <script type="text/javascript">
+//	id 속성이 my-name으로 지정된 div 태그가 브라우저에 랜더링(표시)된 이후이므로 얻어올 수 있다.
+	const myName = document.getElementById('my-name');
+	console.log(myName); //<div id="my-name">내 사이트!</div>
+	console.log(myName.innerText); //내 사이트!!
+	myName.innerHTML = '<h1>꺄~~~~</h1>';
+</script>  -->
+
+<!-- <script type="text/javascript" src="./js/21_script.js">
+//	script 태그에 src 속성이 지정되면 script 태그 내부의 스크립트 코드는 모두 무시된다.
+	myName.innerText = '<h1>꺄~~~~</h1>';  //무시 -->
+</script>
+</body>
+</html>

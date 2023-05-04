@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>iframe</title>
+</head>
+<body>
+
+<!-- 
+	<iframe> 태그는 현재 html 문서 안에 다른 html 문서를 삽입한다. 중첩 브라우징
+	src 속성에 iframe에 표시할 문서나 동영상의 url을 적는다.
+	width 속성에 iframe의 너비를 지정한다.
+	height 속성에 iframe의 높이를 지정한다.
+ -->
+ 
+ <p>여기는 현재 페이지</p>
+ 
+ <div>
+ 	<img alt="점보트론 이미지" src="./images/ex.jpg" width="500"/>
+ </div>
+ 
+ <div>
+ 	<iframe src="https://ncs.go.kr/index.do" width="70%" height="400" style="border: 4px solid red;"></iframe>
+ </div>
+ 
+ <div>
+ 	<iframe src="07_content.html" width="70%" height="400" style="border: 4px solid red;"></iframe>
+ </div>
+ 
+ <div>
+ <!-- 
+ 	유튜브 동영상 주소를 https://www.youtube.com/watch?v=PrTzsOSW2N4처럼 watch?v=인 상태로 실행하면 유튜브에서 연결을 거부하게된다.
+ 	watch?v= 부분을 "embed/"로 수정하면 유튜브 영상에 연결이 가능해진다.
+  -->
+ 	<iframe src="https://www.youtube.com/embed/PrTzsOSW2N4" 
+ 		width="70%" 
+ 		height="400" 
+ 		style="border: 4px solid red;">
+ 	</iframe>
+ </div>
+
+</body>
+</html>

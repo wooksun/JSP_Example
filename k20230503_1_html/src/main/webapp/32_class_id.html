@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>class id</title>
+
+<style type="text/css">
+	
+	.section {
+		background-color: skyblue;
+		height: 50px;
+	}
+	
+	#section {
+		background-color: tomato;
+		height: 50px;
+	}
+	
+</style>
+
+</head>
+<body>
+
+<!-- 
+	class : 공백으로 구분하는 요소의 별명을 지정한다. 같은 속성 값을 가지는 class를 여러개 지정할 수 있다.
+	css나 javascript에서 요소 선택기(css 선택자 (ex-td.td), getElementsByClass(), querySelecterAll())를 통해서
+	요소를 선택하거나 접근할 수 있다.
+	
+	id : 문서에서 사용할 고유한 식별자(id, identified)를 정의한다. id는 딱 한개만 지정할 수 있다.
+	css나 javascript에서 요소 선택기 (css 선택자 (ex-td.td), getElementsByClass(), querySelecter())를 통해서
+	요소를 선택하거나 접근할 수 있다.
+ -->
+ 
+ <div class="section"></div>
+ <div id="section"></div>
+ <div class="section"></div>
+ 
+ <script type="text/javascript">
+ 	const section1 = document.getElementsByClassName('section');
+ 	console.log(section1)
+ 	section1[0].innerText = '오늘은';
+ 	section1[1].innetText = '마치겠습니다 수고했습니다.'
+ 	
+ 	const sectionId1 = document.getElementById('section');
+ 	console.log(sectionId1)
+ 	sectionId1.innerText = '여기까지';
+ </script>
+
+</body>
+</html>

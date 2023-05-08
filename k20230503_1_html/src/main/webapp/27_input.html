@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>input</title>
+</head>
+<body>
+
+<!-- 
+	<input> 태그는 사용자에게 데이터를 입력받는 양식을 만든다.
+	type 속성으로 입력 양식 종류를 결정한다.
+	
+	button : 일반 버튼
+	checkbox : 체크 박스
+	color : 색상표, IE 사용불가 
+	email : 이메일
+	file : 파일 선택
+	hidden : 보이지 않는 양식, value 속성으로 값을 지정한다.
+	image : 이미지 제출(전송) 버튼
+	number : 숫자입력
+	password : 비밀번호 
+	radio : 라디오 버튼
+	range : 범위
+	reset : 초기화, 해당 form에 입력된 모든 정보 삭제
+	search : 검색
+	submit : 전송버튼
+	tel : 전화번호
+	text : 일반 텍스트, 기본값
+	url : 절대 url
+ -->
+ 
+<!-- 
+	<input> 태그가 <form> 태그 내부에 있지 않아도, form 속성에 연결할 폼에 설정된 id를 지정하면 연결할 수 있다.
+	maxlength="7" 속성으로 텍스트 상자에 입력 가능한 문자의 최대 개수를 지정한다. 
+-->
+form 외부 : <input type="text" name="jumin" placeholder="주민등록번호 앞자리" maxlength="7" form="myinfo"/>
+ 
+<form id="myinfo" action="?" method="get" novalidate="novalidate">
+	<!-- 
+		name 속성으로 양식의 이름을 지정한다. 입력한 데이터가 name 속성에 저장되서 action 페이지로 전송된다. 
+		autofocus="autofocus" 속성을 지정하면 페이지가 로드될 때 자동으로 포커스(커서)가 위치한다.
+		autofocus="autofocus" 속성은 문서 내에서 고유해야 한다.(ex. 두개의 박스가 동시에 깜빡거리기보다, 하나의 박스만 깜빡거리도록)
+	-->
+	이메일 : <input type="email" name="email" autofocus="autofocus"/></br>
+	비밀번호 : <input type="password" name="password"/></br>
+	<!-- 
+		value 속성으로 양식의 초기값을 설정한다.
+		readonly="readonly" 속성으로 양식을 읽기 전용으로 지정한다. => 수정 불가능
+		disabled="disabled" 속성으로 양식을 비활성화 시킨다.(커서가 눌리지 않음, 고치면 안되는 값 등에 사용) 
+		=> 비활성화 시, 데이터가 action 페이지로 전송되지 않는다.
+		min 속성으로 최소값, max 속성으로 최대값, step 속성으로 증감값을 지정한다.
+	 -->
+	나이1 : <input type="number" name="age1" value="0" readonly="readonly"/></br>
+	나이2 : <input type="number" name="age2" value="10" disabled="disabled"/></br>
+	나이3 : <input type="number" name="age3" placeholder="나이를 입력하세요"/></br>
+	나이4 : <input type="number" name="age4" value="0" min="10" max="10" step="2"/></br>
+	취미</br>
+	<!-- checkbox, radio는 같은 그룹끼리 같은 name 속성을 지정해야 한다. -->
+	<!-- checkbox, radio 데이터 입력 기능이 없으므로 value 속성으로 넘겨줄 데이터를 넣어야 한다. -->
+	공부 <input type="checkbox" name="hobbies" value="공부"/>
+	독서 <input type="checkbox" name="hobbies" value="독서"/>
+	명상 <input type="checkbox" name="hobbies" value="명상"/></br>
+	
+	성별</br>
+	남자 <input type="radio" name="gender" value="남자"/>
+	여자 <input type="radio" name="gender" value="여자"/></br>
+	
+	<!-- type="image" 속성을 지정하면 type="submit" 속성이 지정된 것과 같은 기능을 한다. -->
+	이미지 submit 버튼<input type="image" name="image" src="./images/me.png" width="300px"/></br>
+	
+	
+	<input type="submit" value="로그인"/>
+	<input type="reset" value="다시쓰기"/>
+</form>
+
+</body>
+</html>

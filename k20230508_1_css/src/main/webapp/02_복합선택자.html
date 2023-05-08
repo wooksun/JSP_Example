@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>복합선택자</title>
+
+<style type="text/css">
+	
+	/* 기본 선택자를 붙여서 만든 선택자를 복합 선택자라고 한다. 
+	 	span 태그 중에서 class 속성이 orange인 요소를 선택한다.
+	 */
+	span.orange { 
+		color: red;
+	}
+	
+	/* 자식 선택자 : ">"이 선택자이고, 자식요소(한 단계 아래요소)를 선택한다. */
+	ul > .orange {
+		color: blueviolet;
+	}
+	
+	/* 자손 선택자: " "(공백한칸)이 선택자이고, 자손요소(모든 요소)를 선택한다. */
+ 	div .apple {
+		color: mediumaquamarine;
+	} 
+	
+	/* 인접 형제 선택자: "+"가 선택자이고, 다음 형제 요소 1개를 선택한다. (class="apple"다음으로 오는 것이 바뀜. 딸기, 오렌지가 밑에있으면 오렌지) */
+	.apple + li{
+		color: yellowgreen;
+	}
+	
+	/* 일반 형제 선택자 : "~"가 선택자이고, 다음 형제 요소 모두를 선택한다.(li태그 class="orange"아래가 모두 선택. 망고, 사과 ) */
+	.orange ~ li {
+		text-decoration: underline;
+	}
+	
+</style>
+</head>
+<body>
+
+<div>
+	<ul>
+		<li class="apple">사과</li>
+		<li>딸기</li>
+		<li class="orange">오렌지</li>
+	</ul>
+	<div class="apple">당근</div>
+	<p>토마토</p>
+	<span class="orange">멜론</span>
+</div>
+
+<ul>
+	<li>딸기</li>
+	<li>수박</li>
+	<li class="orange">오렌지</li>
+	<li>망고</li>
+	<li>사과</li>
+</ul>
+
+</body>
+</html>

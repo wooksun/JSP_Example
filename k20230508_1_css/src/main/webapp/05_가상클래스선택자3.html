@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>가상클래스선택자 3</title>
+
+<style type="text/css">
+
+	/* fruits1 class의 1번째 자손 요소는 p태그가 아니므로 아무것도 선택되지 않는다. */
+	.fruits1 p:nth-child(1) {
+		color: red;
+	}
+	
+	/* nth-of-type(): 지정된 태그와 동일 타입(태그)의 형제 요소 중 n번째 요소라면 선택한다. */
+	.fruits1 p:nth-of-type(1) {
+		color: blue;
+	}
+	
+	/* nth-of-type()은 태그와 함께 사용해야하므로 class와 함께 사용하면 동작되지 않는다. */
+	.fruits2 .red:nth-of-type(1) {
+		color: lime;
+	}
+	
+	/* 수박만 선택하려면 위의 방식 대신 아래와 같이 해야한다. */
+	.fruits2 li:nth-of-type(2) {
+		color: yellowgreen;
+	}
+	
+	/* not : 부정 연산자로 ()안에 지정된 요소가 아닌 요소를 선택한다. */
+	.fruits3 li.watermelon {
+		color: hotpink;
+	}
+	
+	.fruits3 li:not(.watermelon) { /* li 중 watermelon 클래스가 아닌 것을 뜻함 */
+		color: green;
+	}
+
+</style>
+
+</head>
+<body>
+
+<ul class="fruits1">
+	<div>딸기</div>
+	<p>수박</p>
+	<p>오렌지</p>
+	<p>망고</p>
+	<span>사과</span>
+</ul>
+<hr/>	
+
+<ul class="fruits2">
+	<li>딸기</li>
+	<li class="red">수박</li>
+	<li>오렌지</li> 
+	<li class="red">망고</li>
+	<li>사과</li>
+</ul>
+<hr/>
+
+<ul class="fruits3">
+	<li>딸기</li>
+	<li class="watermelon">수박</li>
+	<li>오렌지</li> 
+	<li>망고</li>
+	<li>사과</li>
+</ul>
+<hr/>
+
+
+
+</body>
+</html>

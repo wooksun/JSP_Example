@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>박스 모델 - display</title>
+
+<style type="text/css">
+
+	/*
+		display: 요소의 박스 타입을 설정한다.
+			block => 블록 요소(div 등), 내용이 없어도 크기를 가질 수 있다.
+			inline => 인라인 요소(span 등), 내용이 있어도 크기를 가질 수 없고, 자동으로 줄이 변경되지 않는다.
+			inline-block => 인라인 블록 요소(input), 인라인 요소인데 크기를 가질 수 있다.
+			none => 요소의 박스 타입이 없음 => 요소가 화면에서 사라짐
+	*/
+	
+	span { /* 내용이 없다면 출력되지 않지만, 내용이 있으면 내용만큼 출력됨 */
+		width: 100px;
+		height: 100px;
+		background-color: tomato;
+		/* span은 inline 요소지만, display block을 줌으로써 크기를 가지게 되므로 내용이 없어도 보이게 된다. */
+		display: block;
+	}
+	
+	div { 
+		width: 100px;
+		height: 100px;
+		background-color: lime;
+		/* div는 블록요소지만 display inline을 줌으로써 크기를 가질 수 없게되므로 내용이 있어야 보인다. */
+		display: inline;
+	}
+	
+	input {
+		width: 100px;
+		height: 30px;
+		background-color: hotpink;
+		margin: 3px 0px;
+		padding: 10px;
+		display: inline-block;
+	}
+	
+	form > input:nth-child(2) {
+		display: none;
+	}
+
+	
+	
+</style>
+
+</head>
+<body>
+
+<span>내용이 있으면</span>
+<div>블록 요소가 인라인 요소로 변경되면 내용이 있어야 내용의 크기만큼 보인다.</div>
+
+<form>
+	<input type="text" value="1"/>
+	<input type="text" value="2"/>
+	<input type="text" value="3"/>
+	<input type="hidden" value="4"/>
+	<input type="text" value="5"/>
+</form>
+
+</body>
+</html>

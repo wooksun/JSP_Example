@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소정렬 - display속성 자동 수정</title>
+
+<style type="text/css">
+
+	/*
+		display 속성 자동 수정
+		float 속성이 추가된 요소는 display 속성의 값이 대부분 block으로 자동 수정 된다.
+		flex, inline-flex에는 효과가 없다.
+	*/
+	
+	span {
+		width: 100px;
+		height: 100px;
+		background-color: tomato;
+		margin: 10px;
+		font-size: 30px;
+		border: 3px solid blue;
+		display: flex;
+		justify-content: center; 
+		align-items: center;
+		
+		/* float 속성을 지정하면 display: block으로 속성이 자동 변경된다. */
+		float: left;
+		/* display: block; */
+	}
+
+</style>
+
+</head>
+<body>
+
+<span>1</span>
+<span>2</span>
+<span>3</span>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>글꼴</title>
+
+<style type="text/css">
+
+	/*
+		단축 속성
+		font: 글자 관련 속성들을 지정한다.
+		형식 => font: 기울기 두께 크기 / 줄높이 글꼴 => 크기와 줄높이는 "/"로 구분해서 순서를 지켜야 한다.
+		단축 속성을 사용하려면 font-size(크기)와 font-family(글꼴)를 필수로 입력해야 한다.
+		
+		개별 속성
+		font-style: 글자 기울기 지정. 
+			=> normal(기본값)
+			=> italic(기울임꼴)
+		font-weight: 글자 두께를 지정.
+			=> normal(기본값)
+			=> bold(굵게) / 여기까지가 중요
+		font-size: 글자 크기를 지정. 16px이 기본값이다.
+		line-height: 줄 높이(줄 간격)를 지정.
+		font-family: 글자의 글꼴을 지정한다.
+			=>serif(명조체), sans-serif(돋움체)
+			
+		
+	*/
+	
+	p {
+		/* 개별 속성 */
+		/* 
+		font-style: italic;
+		font-weight: bolder;
+		font-size: 30px;
+		line-height: 32px;
+		font-family: sans-serif; 
+		*/
+		
+		/* 단축 속성 */
+		/* font: 30px D2Coding; */
+		font: italic bold 30px / 32px D2Coding; 
+	}
+	
+
+</style>
+
+</head>
+<body>
+
+<p>안녕하세요. 최진욱입니다.</p>
+<p>안녕하세요. 최진욱입니다. 12345</p>
+
+</body>
+</html>

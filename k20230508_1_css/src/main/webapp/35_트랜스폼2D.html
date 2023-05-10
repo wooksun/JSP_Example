@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>트랜스폼 2D</title>
+
+<style type="text/css">
+
+	/*
+		transform: 요소의 변형 효과를 지정한다.
+		
+		transform 2D 변환 함수
+			=> translate(x, y): x축 y축 모두 이동 => 대각 방향으로 이동 => px 단위로 지정
+			=> translate(x): x축만 이동 => 수평 방향으로 이동
+			=> translate(y): y축만 이동 => 수직 방향으로 이동
+			=> scale(x, y): x축 y축 모두 크기 변경
+			=> scaleX(x): x축만 크기 변경
+			=> scaleY(y): y축만 크기 변경
+			=> rotate(각도deg):  지정된 각도만큼 회전 => 양수는 시계방향, 음수는 반시계방향으로 회전
+			=> skew(x축 각도deg, y축 각도deg): x축 y축 모두 지정된 각도만큼 비튼다.
+			=> skew(x축 각도deg): x축만 지정된 각도만큼 비튼다.
+			=> skew(y축 각도deg): y축만 지정된 각도만큼 비튼다.
+	*/
+	
+	.box {
+		/* 초기 스타일 */
+		width: 200px;
+		height: 200px;
+		border: 3px solid red;
+		background-color: yellowgreen;
+		font-size: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 50px;
+		
+		/* 애니메이션 시작 위치 */
+		position: relative;
+		top: 0px;
+		left: 0px;
+		transition-duration: 1s;
+		
+		/* 애니메이션 시작 위치에서 transform 변환 함수를 사용하면 화면에 보일 때부터 변환되서 보인다. */
+		/* transform: translate(100px, 30px); */ /* x축으로 100px, y축으로 30px 이동되서 표시된다. */
+	}
+	
+	.box:hover {
+		/* 종료 스타일 */
+		background-color: skyblue;
+		
+		/* 애니메이션 종료 위치, transform 변환 함수를 사용하면 의미가 없다. */
+		/* 
+		position: relative;
+		top: 200px;
+		left: 200px; 
+		*/
+		
+		/* transform 변환 함수를 이용한 애니메이션 */
+		/* transform: translate(200px, 200px); */
+		/* transform: translateX(200px); */
+		/* transform: translateY(200px); */
+		/* transform: scale(1.5, 1.5); */
+		/* transform: scaleX(1.5); */
+		/* transform: scaleY(1.5); */
+		/* transform: rotate(360deg); */
+		/* transform: skew(10deg, 10deg); */
+		/* transform: skewX(10deg); */
+		/* transform: skewY(10deg); */
+		
+		/* transform 변환 함수를 2개 이상 사용하려면 띄어쓰기로 구분해서 한번에 적어야 한다. */
+		transform: translate(200px, 200px) scale(1.5, 1.5) rotate(1080deg);
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="box">123</div>
+
+</body>
+</html>

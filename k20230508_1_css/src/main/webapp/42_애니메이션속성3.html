@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>애니메이션 - 반복, 방향</title>
+
+<style type="text/css">
+
+	/*
+		animation-iteration-count: 애니메이션의 반복 횟수를 지정한다.
+			=> 숫자: 반복 횟수를 지정한다.
+			=> infinite: 무한 반복
+		animation-direction: 애니메이션 재생 방향을 지정한다. 
+			=> nomal: 기본값, 정방향(0% => 100%)으로 실행한다.
+			=> reverse: 역방향, (100% => 0%)으로 실행한다.
+			=> alternate: 정방향으로 실행한 후 역방향으로 실행한다. 정방향 왕복 실행
+			=> alternate-reverse: 역방향으로 실행한 후 정방향으로 실행한다. 역방향 왕복 실행
+	*/
+	
+	.box {
+		width: 100px;
+		height: 100px;
+		background-color: tomato;
+		border-radius: 10px;
+		margin: 20px;
+		
+		/* 
+		animation-name: movemove;
+		animation-duration: 2s;
+		animation-timing-function: linear;
+		animation-delay: 0.3s;
+		animation-iteration-count: 5;
+		animation-direction: normal; 
+		*/
+		
+		animation: movemove 2s linear 0.3s 5 normal;
+		
+	}
+	
+	@keyframes movemove {
+		0% {
+			transform: translate(0px, 0px);
+		}
+		
+		25% {
+			transform: translate(100px, 0px);
+			background-color: dodgerblue;
+			
+		}
+		
+		50%{
+			transform: translate(100px, 100px);
+			background-color: yellowgreen;
+		}
+		
+		75% {
+			transform: translate(0px, 100px);
+			background-color: hotpink;
+		}
+		
+		100% {
+			transform: translate(0px, 0px);
+			background-color: tomato;
+		}
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="box"></div>
+
+</body>
+</html>

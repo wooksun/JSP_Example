@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>요소정렬 - 요소 쌓임 순서</title>
+
+<style type="text/css">
+
+	/*
+		요소 쌓임 순서
+		요소들이 쌓여있는 순서를 통해서 어떤 요소가 사용자와 가깝게 있는지(더 위에 있는지)를 결정한다. => Z축
+			static을 제외한 position 속성 값이 있을 경우 속성 값에 무관하게 가장 위에 쌓인다.
+			position 속성 값이 모두 존재한다면 z-index 속성(기본 값은 0)의 값이 클수록 위에 쌓인다.
+			position 속성 값이 모두 존재하고 z-index 속성 값도 같다면, 나중에 작성된 요소가 위에 쌓인다.
+	*/
+	
+	.box-group {
+		display: flex;
+	}
+
+	.box-group > .box {
+		width: 100px;
+		height: 100px;
+		background-color: tomato;
+		border: 4px solid red;
+		font-size: 30px;
+		border-radius: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-shadow: 10px 30px 10px rgba(255, 0, 0, 0.7);
+		margin-right: -30px;
+	}
+	
+	.box-group > .box:nth-child(2n) {
+		margin-top: 30px;
+	}
+	
+	.box-group > .box1 {
+		/* position: relative; */
+		z-index: 0;
+	}
+	.box-group > .box1:hover {
+		/* position: relative; */
+		z-index: 4;
+	}
+	.box-group > .box2 {
+		/* position: relative; */
+		z-index: 2;
+	}
+	.box-group > .box3 {
+		/* position: relative; */
+		z-index: 3;
+	}
+	.box-group > .box4 {
+		/* position: relative; */
+		z-index: 1;
+	}
+	.box-group > .box5 {
+		/* position: relative; */
+		z-index: 0;
+	}
+	
+</style>
+
+</head>
+<body>
+
+	<div class="box-group">
+		<div class="box box1">1</div>
+		<div class="box box2">2</div>
+		<div class="box box3">3</div>
+		<div class="box box4">4</div>
+		<div class="box box5">5</div>
+	</div>
+
+</body>
+</html>

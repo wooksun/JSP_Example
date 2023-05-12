@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>grid 아이템 단위</title>
+
+<style type="text/css">
+
+	/*
+		fr: fr(fractional unit)은 사용 가능한 공간에 대한 비율을 의미한다.
+		min-content: 아이템이 포함하는 내용의 최소 크기를 지정한다.
+		max-content: 아이템이 포함하는 내용의 최대 크기를 지정한다.
+	*/
+	
+	.container1 {
+		width: 900px;
+		height: 200px;
+		border: 2px solid red;
+		display: grid;
+		
+		/*
+			고정 크기를 가장 먼저 할당하기 때문에 3열에 100px을 할당한다. 
+			4열에 전체 1000px 중에서 3열에 할당한 100px을 제외한 900px의 25%를 할당한다.
+			공간 분할을 가장 마지막에 할당하기 때문에 3,4열을 할당하고 남은 공간 중에서 1열에 1/3을 할당하고, 2열에 2/3를 할당한다.
+		*/
+		grid-template-columns: 1fr 2fr 100px 25%; 
+	}
+	
+	.container1 > .item1 {
+		border: 2px solid blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	/* container2 */
+	.container2 {
+		width: 900px;
+		height: 200px;
+		border: 2px solid red;
+		display: grid;
+		/* grid-template-columns: 1fr 1fr; */
+		/* grid-template-columns: max-content 1fr; */ /* 전체 문장 길이 */
+		grid-template-columns: min-content 1fr; /* 가장 긴 단어의 길이 */
+		
+	}
+	
+	.container2 > .item2 {
+		border: 2px solid blue;
+	}
+	
+	/* container3 */
+	.container3 {
+		width: 900px;
+		height: 200px;
+		border: 2px solid red;
+		display: grid;
+		/* min-content는 영문이 단어 단위로 설정되지만, 한글은 단어 단위가 아닌 음절 단위로 크기를 잡니다.(한글자) */
+		grid-template-columns: min-content 1fr; 
+		/* 한글에 정상적으로 min-content가 단어 단위로 적용되게 하려면 아래의 속성을 추가한다. */
+		word-break: keep-all;
+	}
+	
+	.container3 > .item3 {
+		border: 2px solid blue;
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="container1">
+	<div class="item1">1</div>
+	<div class="item1">2</div>
+	<div class="item1">3</div>
+	<div class="item1">4</div>
+</div><br/>
+
+<div class="container2">
+	<div class="item2">Hello World.</div>
+	<div class="item2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	<div class="item2">3</div>
+	<div class="item2">4</div>
+</div><br/>
+
+<div class="container3">
+	<div class="item3">안녕하세요 최진욱입니다.</div>
+	<div class="item3">2</div>
+	<div class="item3">3</div>
+	<div class="item3">4</div>
+</div><br/>
+
+</body>
+</html>

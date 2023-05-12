@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>grid 아이템 함수 - </title>
+
+<style type="text/css">
+
+	/*
+		repeat: repeat() 함수는 행, 열의 크기 정의를 반복한다.	
+			=> 반복할 횟수와 행 또는 열의 크기를 인수로 사용한다.
+			=> grid-template-rows와 grid-template-columns에서 사용한다.
+		minmax: minmax() 함수는 행, 열의 최소, 최대 크기를 지정한다.
+			=> 첫 번째 인수는 최소값이고, 두번째 인수는 최대값이 들어간다.
+			=> grid-template-rows, grid-template-columns, grid-auto-rows, grid-auto-columns
+			=> 일반요소 min-width와 max-width 속성을 지정하는 것과 유사한 기능이 실행된다.
+		fit-content: fit-content() 함수는 행, 열의 크기를 아이템이 포함하는 내용의 크기에 맞춘다.
+			=> 내용이 표시될 최대 크기는 함수의 인수로 지정한다.
+	*/
+	
+	.container1 {
+		width: 900px;
+		height: 200px;
+		border: 2px solid red;
+		display: grid;
+		
+		/* grid-template-rows: 1fr;  */
+		/* grid-template-columns: 100px 100px 100px 100px 100px 100px; */
+		/* grid-template-columns: repeat(6, 100px); */
+		
+		/* grid-template-rows: [row-start] 200px [row-end row-start] 200px [row-end]; */
+		/* grid-template-rows: repeat(2, [row-start] 200px [row-end]); */
+		
+		/* grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr; */
+		grid-template-columns: repeat(6, 1fr 2fr); 
+	}
+	
+	.container1 > .item1 {
+		border: 2px solid blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	/* container2 */
+	.container2 {
+		width: 400px;
+		height: 200px;
+		border: 2px solid red;
+		display: grid;
+		/* 
+			컨테이너 너비가 아이템 너비의 합계보다 작아져도 각 열의 너비는 최소값인 100px, 200px이 유지된다.	
+			컨테이너의 너비가 커져서 각 열이 충분히 표시될 경우 1:1 비율이 유지된다.	 
+		 */
+		grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);
+	}
+	
+	.container2 > .item2 {
+		border: 2px solid blue;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	/* container3 */
+	.container3 {
+		border: 2px solid red;
+		display: grid;
+		grid-template-rows: 100px 100px;
+		grid-template-columns: repeat(2, fit-content(400px));
+	} 
+	
+	.container3 > .item3 {
+		border: 2px solid blue;
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="container1">
+	<div class="item1">1</div>
+	<div class="item1">2</div>
+	<div class="item1">3</div>
+	<div class="item1">4</div>
+	<div class="item1">5</div>
+	<div class="item1">6</div>
+	<div class="item1">7</div>
+	<div class="item1">8</div>
+	<div class="item1">9</div>
+</div><br/>
+
+<div class="container2">
+	<div class="item2">1</div>
+	<div class="item2">2</div>
+	<div class="item2">3</div>
+	<div class="item2">4</div>
+</div><br/>
+
+<div class="container3">
+	<div class="item3">안녕하세요 최진욱입니다.</div>
+	<div class="item3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+	<div class="item3">3</div>
+	<div class="item3">4</div>
+</div><br/>
+
+
+</body>
+</html>

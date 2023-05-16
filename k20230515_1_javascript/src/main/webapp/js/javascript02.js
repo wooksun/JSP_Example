@@ -67,13 +67,45 @@ console.log('===================================');
 //	자바스크립트는 나눗셈을 0으로 하면 결과가 infinity가 된다.
 const infinity = 1 / 0;
 console.log(`value: ${infinity}, type: ${typeof infinity}`); // `(그레이브)를 이용
-console.negativeInfinity = -1 / 0;
+const negativeInfinity = -1 / 0;
 console.log(`value: ${negativeInfinity}, type: ${typeof negativeInfinity}`); // `(그레이브)를 이용
 //	자바스크립트는 문자열을 나누면 결과가 Nan이 된다.
 const nan = 'Not A Number' / 2;
 console.log(`value: ${nan}, type: ${typeof nan}`); // `(그레이브)를 이용
 console.log('===================================');
 
+//	동적 자료형(dynamic typing): 변수에 저장되는 데이터의 타입에 맞춰 변수의 타입이 결정된다.
+let text = "hello";
+console.log(`value: ${text}, type: ${typeof text}`);
+text = 1;
+console.log(`value: ${text}, type: ${typeof text}`);
+console.log('===================================');
+
+//	symbol: 고유한 식별자를 만들 때 사용한다.
+const symbol = Symbol('id');
+console.log(symbol);
+console.log(`type: ${typeof symbol}`);
+
+const symbol2 = Symbol('id');
+console.log(symbol2);
+console.log(`type: ${typeof symbol2}`);
+console.log(symbol == symbol2);
+console.log('===================================');
+
+//	object(객체)
+const obj = {
+	name: '최진욱', 
+	age: 25
+}
+console.log(obj);
+console.log(obj.name);
+console.log(obj.age);
+
+obj.age = 21;
+console.log(obj);
+console.log(obj.age);
+
+console.log(typeof obj);
 
 
 

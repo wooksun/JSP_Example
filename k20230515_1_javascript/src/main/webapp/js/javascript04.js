@@ -26,8 +26,9 @@ log();
 console.log('=========================');
 
 //	함수의 인수로 객체를 받을 수 있다.
+//	function: 함수 선언
 function setName(obj) {
-	;obj.name = '우기';
+	obj.name = '우기';
 }
 const choi = { //객체 생성
 	name:'최진욱',

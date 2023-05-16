@@ -1,4 +1,4 @@
-const objects = [
+const objects = [ //배열
 	{ //객체1
 		name: '멍멍이'
 	},

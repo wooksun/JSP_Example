@@ -20,7 +20,7 @@ function print(hero) { //일반 함수
 	console.log(hero);
 }
 
-//	형식: 배열명.forEach(함수명), (주의) forEach() 함수의 인수로 전달되는 함수 뒤에 ()를 붙이면 안된다.
+//	형식: 배열명.forEach(함수명), (주의) forEach() 함수의 인수로 전달되는 함수 뒤에 ()를 붙이면 안된다. forEach(print()) X
 superheroes.forEach(print);
 console.log('================= forEach() - 일반함수 =====================');
 

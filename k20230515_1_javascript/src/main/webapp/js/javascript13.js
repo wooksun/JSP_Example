@@ -14,7 +14,7 @@ const dog = {
 };
 /*
 function getName(animal) {
-	console.log(animal);
+	console.log(animal);s
 	if (animal) {
 		return animal.name;
 	}

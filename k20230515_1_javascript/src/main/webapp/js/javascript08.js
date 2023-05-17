@@ -187,6 +187,7 @@ console.log('indexOf(): ' + index);
 const index2 = superheroes2.lastIndexOf('캡틴아메리카');
 console.log('lastIndexOf(): ' + index2);
 const index3 = superheroes2.lastIndexOf('캡틴 아메리카'); //없는 문자열이라 -1이 리턴
+console.log('lastIndexOf(): ' + index3);
 
 if(index >= 0) {
 	console.log('있음');

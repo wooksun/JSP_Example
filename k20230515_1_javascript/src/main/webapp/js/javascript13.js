@@ -1,4 +1,4 @@
-//	falsy: 무조건 거짓이 되는 값 => 0, ''. null, undefined, NaN
+//	falsy: 무조건 거짓이 되는 값 => 0, '', null, undefined, NaN
 //	truthy: 무조건 참이 되는 값 => falsy를 제외한 나머지
 
 //	단축 평가(short-circuit evaluation) 논리 계산법

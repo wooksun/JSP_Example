@@ -1,6 +1,6 @@
 //	클래스 - function으로 선언
 function Animal(type, name, sound) {
-//	벰버 변수 초기화
+//	멤버 변수 초기화
 	this.type = type;
 	this.name = name;
 	this.sound = sound;
@@ -80,7 +80,6 @@ function Dog(name, sound) {
 	//	부모 클래스를 호출해서 자식 클래스를 초기화할 데이터를 전달한다.
 	Animal4.call(this, '개', name, sound);
 }
-
 //	부모 클래스의 prototype을 자식 클래스의 prototype에 넣어준다. => 상속시킨다.
 //	자식 클래스를 선언하고 자식 클래스의 객체를 생성하기 전에 넣어줘야 한다. => 위치가 중요하다.
 Dog.prototype = Animal4.prototype;

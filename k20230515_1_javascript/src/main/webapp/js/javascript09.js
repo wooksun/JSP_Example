@@ -29,7 +29,7 @@ console.log(numbers3);
 numbers3.push(999);
 console.log(numbers3); // [10, 20, 30, 40, 999]
 numbers3.unshift(777);
-console.log(numbers3);
+console.log(numbers3); // [777, 10, 20, 30, 40, 999]
 
 let popData = numbers3.pop();
 console.log('popData: ' + popData); 

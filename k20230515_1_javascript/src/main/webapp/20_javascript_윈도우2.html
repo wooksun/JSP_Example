@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 윈도우2</title>
+<script type="text/javascript" src="./js/javascript20.js"></script>
+</head>
+
+<!-- onload 이벤트는 브라우저에 html 파일의 내용이 다 표시되면 자동으로 실행되는 이벤트이다. -->
+
+<body onload="requestID()">
+
+<h1>19_javascript_윈도우1.html에서<br/>
+20_javascript_윈도우2.html로 넘어 온 window 새창입니다.
+</h1>
+
+ID: <input id="childID" type="text" readonly="readonly"/>
+<!-- onclick에서 self는 현재 윈도우를 의미한다.  -->
+<input type="button" value="창 닫기" onclick="self.close()"/>
+
+</body>
+</html>

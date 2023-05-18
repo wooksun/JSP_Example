@@ -7,14 +7,14 @@
 console.log(true && 'hello');
 //	'&&' 논리 연산에서 앞의 조건이 falsy한 값이면 falsy한 값이 출력된다.
 console.log(false && 'hello');
-console.log('===============================');
+console.log('============= && =================');
 
 const dog = {
 	name: '멍멍이'
 };
 /*
 function getName(animal) {
-	console.log(animal);s
+	console.log(animal);
 	if (animal) {
 		return animal.name;
 	}
@@ -30,19 +30,33 @@ const name = getName(dog);
 console.log(name);
 const name2 = getName();
 console.log(name2);
+console.log('===============================');
 
+//	'||' 논리 연산에서 앞의 조건이 truthy한 값이면 '||' 앞의 내용이 출력된다.
+console.log(true || 'hello'); //true
+console.log('abc' || 'hello'); //abc
+//	'||' 논리 연산에서 앞의 조건이 falsy한 값이면 '||' 뒤의 내용이 출력된다.
+console.log(false || 'hello'); //hello
+console.log('============== || ================');
 
+const cat = {
+	name: '야옹이'
+};
 
+function getName2(animal) {
+	console.log(animal);
+	const name = animal || animal.name;
+	if(name) {
+		return name.name;
+	}else {
+		return '객체가 없습니다.';
+	}
+}
 
-
-
-
-
-
-
-
-
-
+const name3 = getName2(cat);
+console.log(name3);
+//const name4 = getName2(); //에러 발생
+//console.log(name4);
 
 
 

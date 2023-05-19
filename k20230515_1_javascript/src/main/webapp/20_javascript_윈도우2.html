@@ -14,9 +14,12 @@
 20_javascript_윈도우2.html로 넘어 온 window 새창입니다.
 </h1>
 
-ID: <input id="childID" type="text" readonly="readonly"/>
+ID: <input id="childID" type="text" readonly="readonly"/><br/>
+<input type="button" value="부모 창으로 전달" onclick="sendID1()"/><br/>
+<input type="button" value="창을 닫으면서 부모 창으로 전달" onclick="sendID2()"/><br/>
 <!-- onclick에서 self는 현재 윈도우를 의미한다.  -->
 <input type="button" value="창 닫기" onclick="self.close()"/>
+
 
 </body>
 </html>

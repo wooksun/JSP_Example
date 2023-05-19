@@ -1,0 +1,25 @@
+#register {
+	border: 2px solid blue;
+	background-color: tomato;
+	padding: 10px;
+	position: absolute;
+	top: 200px;
+	left: 400px;
+	
+	/* id 속성이 register로 지정된 div 요소를 화면에 표시하지 않는다. */
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

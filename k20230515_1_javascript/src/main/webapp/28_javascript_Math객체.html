@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Math객체</title>
+<script type="text/javascript" src="./js/javascript28.js"></script>
+</head>
+<body>
+
+<h1>Math 객체</h1>
+
+<h2>랜덤 숫자 생성하기</h2>
+숫자: <input id="random" type="text"/>
+<input type="button" value="랜덤 숫자 만들기" onclick="randomNumber(random.value)" />
+
+<h2>랜덤 배경색 생성하기</h2>
+<input type="button" value="랜덤 배경색 만들기" onclick="randomColor()" />
+
+<h2>랜덤한 크기의 원 만들기</h2>
+<input type="button" value="랜덤한 크기의 원 만들기" onclick="randomCircle()" /><br/><br/>
+<div id="circle"></div>
+
+<h2>위에서 만든 랜덤한 크기의 원의 너비와 둘레 계산하기</h2>
+<input type="button" value="너비와 둘레 계산하기" onclick="randomCircleArea()" /><br/><br/>
+원의 너비:<span id='area'></span><br/>
+원의 둘레:<span id='len'></span><br/>
+
+
+</body>
+</html>

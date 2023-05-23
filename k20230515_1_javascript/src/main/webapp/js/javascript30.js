@@ -97,8 +97,9 @@ function joinTest() {
 
 function alphaSort() {
 	//	sort(): 코드값 순서로 오름차순(사전식) 정렬, 무조건 문자 데이터로 취급해서 정렬한다.
-	//	문자화 된 숫자 => 문자 => null 순서로 정렬된다.
-	let arr = ['a', 5, null, 'c', 'b', 'A', 100];
+	//	null도 sort() 함수는 문자열로 취급해서 정렬한다.
+	//	문자화 된 숫자 => 문자 순서로 정렬된다.
+	let arr = ['a', 5, null, 'c', 'b', 'A', 100, 'nt', 'nv'];
 	arr.sort();
 	console.log(arr);
 }

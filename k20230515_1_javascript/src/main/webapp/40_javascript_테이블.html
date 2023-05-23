@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript 테이블</title>
+<script type="text/javascript" src="./js/javascript40.js"></script>
+
+</head>
+<body>
+
+<form action="?">
+	<table id="inTable" border="1" cellpadding="5" cellspacing="0">
+		<tr>
+			<th>아이디</th>
+			<td><input type="text" name="id"/></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><input type="text" name="password"/></td>
+		</tr>
+		<tr>
+			<th>주소</th>
+			<td><input type="text" name="address"/></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="text" name="phoneNo"/></td>
+		</tr>
+	</table><br/>
+	<input type="button" value="추가" onclick="tableAdd()"/>
+</form><br/><br/>
+
+<div id="addTable">
+	<table id="table" border="1" cellpadding="5" cellspacing="0">
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>주소</th>
+				<th>전화번호</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="addtr">
+			
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>

@@ -16,14 +16,14 @@
 </div><br/>
 
 <form action="?">
-	<input type="checkbox" />전체선택<br/>
-	<input type="checkbox" />빨강<br/>
-	<input type="checkbox" />파랑<br/>
-	<input type="checkbox" />노랑<br/>
-	<input type="checkbox" />검정<br/><br/>
+	<input name="all" type="checkbox" onclick="allCheck()"/>전체선택<br/>
+	<input name="chk" type="checkbox" value="red"  onclick="chkSelect()"/>빨강<br/>
+	<input name="chk" type="checkbox" value="blue"  onclick="chkSelect()"/>파랑<br/>
+	<input name="chk" type="checkbox" value="yellow"  onclick="chkSelect()"/>노랑<br/>
+	<input name="chk" type="checkbox" value="black"  onclick="chkSelect()"/>검정<br/><br/>
 	
-	<input type="button" value="선택"/>
-	<input type="button" value="클리어"/>
+	<input type="button" value="선택" onclick="selectColor()"/>
+	<input type="button" value="클리어" onclick="clearColor()"/>
 </form>
 
 </body>

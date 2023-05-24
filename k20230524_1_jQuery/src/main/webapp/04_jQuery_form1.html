@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery - form(1)</title>
+<!-- jQuery CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- 사용자 스크립트 -->
+<script defer="defer" type="text/javascript" src="./js/jQuery04.js"></script>
+</head>
+<body>
+
+<h2>Form</h2>
+
+<form>
+	<input type="text"/>
+	<input type="text"/>
+	<input type="button" value="선택" onclick="choice()"/>
+	<input type="radio" value="수강 과정명"/>
+	<input type="checkbox" value="빅데이터 분석과 엘라스틱 서치를 활용한 자바 웹 개발자 양성"/>
+	<div id='a'>
+		빅데이터 분석과 엘라스틱 서치를 활용한 자바 웹 개발자 양성
+	</div>
+	<select style="width: 200px;">
+		<option>======선택하세요======</option>
+		<option>HTML</option>
+		<option>CSS</option>
+		<option>Javascript</option>
+		<option>jQuery</option>
+	</select>
+	<fieldset style="width: 200px;">
+		<legend>성별</legend>
+		<label>
+			<input type="radio" name="gender" value="남자"/>남자
+		</label>
+		<label>
+			<input type="radio" name="gender" value="여자"/>여자
+		</label>
+	</fieldset>
+</form>
+
+
+</body>
+</html>

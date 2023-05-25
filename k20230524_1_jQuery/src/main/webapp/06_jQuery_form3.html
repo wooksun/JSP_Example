@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery - form(3)</title>
+<!-- jQuery CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!-- 사용자 스크립트 -->
+<script defer="defer" type="text/javascript" src="./js/jQuery06.js"></script>
+</head>
+<body>
+
+<form id="single" action="?">
+	<div>
+		<span>사용자</span>
+		<input id="infoBox" type="text" name="userID" />
+		<span class="error" style="color:red; font-weight: bold;">반드시 입력해야 합니다.</span>
+	</div><br/>
+	<input type="submit" value="입력하기"/>
+	<button type="submit">입력하기</button>
+</form><br/>
+
+<fieldset style="width: 300px;">
+	<legend>체크 여부 확인</legend>
+	<input type="checkbox" name="all"/>전체 선택<br/>
+	<input type="checkbox" name="chk" value="1000"/>사과<br/>
+	<input type="checkbox" name="chk" value="2000"/>바나나<br/>
+	<input type="checkbox" name="chk" value="3000"/>망고<br/>
+	<input type="checkbox" name="chk" value="4000"/>오렌지<br/><br/>
+	<button id="confirm" type="button">확인</button>
+	<span>선택한 과일 가격</span>
+	<div id="result">
+		이곳에 선택한 과일의 가격이 표시됩니다.
+	</div>
+</fieldset>
+
+</body>
+</html>

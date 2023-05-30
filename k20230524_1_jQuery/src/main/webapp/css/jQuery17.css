@@ -1,0 +1,11 @@
+div {
+	border: 1px solid blue;
+}
+
+.prepend {
+	border: 1px solid red;
+}
+
+.append {
+	border: 1px solid green;
+}

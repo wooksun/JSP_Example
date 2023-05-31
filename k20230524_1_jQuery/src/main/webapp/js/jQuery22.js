@@ -13,7 +13,7 @@ $(() => {
 			$.ajax({
 				url: 'emplist.xml', // 필수, 호출할 페이지 주소(요청) 또는 읽어올 xml 파일명
 				cache: false, // 사용자 캐시 사용 여부
-				method: 'get', // 필수, 서버에 데이터를 요청하는 방식
+				method: 'get', // 필수, 서버에 데이터를 요청하는 방식(get, post, delete, put)
 				asyn: true, // 필수, 비동기 방식 사용 여부(false는 동기 방식)
 				dataType: 'xml', // 전송받는 데이터 타입(xml, json, html, script)
 				data: { // method가 post로 지정된 경우, 서버로 전송할 데이터 목록
@@ -29,7 +29,7 @@ $(() => {
 					//	입력한 사원번호에 해당되는 데이터를 출력해야 하기 때문에, 검색한 사원 번호의 
 					//	부모 요소를 선택한다.
 					//	$(data).find('EMPLOYEE_ID:contains(' + empid + ')'): 서버가 응답한 내용에서
-					//	입력한 사원 번호를 찾는다.
+					//	입력한 사원 번호를 찾는다. => contains()
 					let empInfo = $(data).find('EMPLOYEE_ID:contains(' + empid + ')').parent();
 					console.log(empInfo.html());
 					

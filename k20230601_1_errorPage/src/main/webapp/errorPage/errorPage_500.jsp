@@ -1,4 +1,4 @@
-ArithmeticException<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@ ArithmeticException<%@ page language="java" contentType="text/html; charset=UTF-
 </head>
 <body>
 
-<h2>서버에 중대한 문제가 발생했습니다. 빠른 시간</h2>
+<h2>서버에 중대한 문제가 발생했습니다. 빠른 시간내에 복구하겠습니다.</h2>
 </body>
 </html>
 

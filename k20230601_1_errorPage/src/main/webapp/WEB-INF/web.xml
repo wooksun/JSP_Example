@@ -42,5 +42,10 @@
     	<location>/errorPage/errorPage_ArithmeticException.jsp</location>
     </error-page>
     
+    <error-page>
+    	<exception-type>java.lang.NumberFormatException</exception-type>
+    	<location>/errorPage/errorPage_NumberFormatException.jsp</location>
+    </error-page>
+    
     
 </web-app>

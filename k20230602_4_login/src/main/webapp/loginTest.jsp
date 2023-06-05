@@ -38,13 +38,30 @@
 			}
 			out.println("</script>");
 		}
+		
+	//	로그아웃 버튼이 클릭되면 넘어오는 데이터(logout)를 받는다.
+		String logout = request.getParameter("logout");
+	
+	//	로그아웃 정보가 넘어왔으면, 로그아웃 처리를 한다.
+	if(logout != null  && logout.equals("yes")) {
+		out.println("<script>");
+		out.println("alert('" + session.getAttribute("name") + "님 안녕히가세요.')");
+		out.println("</script>");
+		//	로그아웃 되었으므로 세션에서 로그인 정보를 제거한다.
+		session.removeAttribute("id");
+		session.removeAttribute("name");
+		session.removeAttribute("login");
+	}
 	
 	//세선에서 로그인 정보를 읽어와서 로그인 상태, 로그아웃 상태의 화면을 브라우저에 출력한다.
 	String login = (String) session.getAttribute("login");
 	if(login != null  && login.equals("yes")) {
 %>
 	<!-- 로그인 상태일 경우 브라우저에 표시될 내용 -->
-
+	<h2>로그인 성공</h2>
+	<%=session.getAttribute("id") %>님 안녕하세요<br/>
+	${id}님 안녕하세요<br/>
+	<input type="button" value="로그아웃" onclick="location.href='?logout=yes'"/>
 <%
 	} else {
 %>	

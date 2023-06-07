@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.tjoeun.memoList.DBUtil"%>
@@ -7,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>출석부</title>
+<title>메모장</title>
 </head>
 <body>
 
@@ -36,6 +37,7 @@
 		</tr>
 	</table>
 </form>
+
 <!-- 입력 화면 끝 -->
 <br/>
 <hr size="3" color="dodgerblue"/>
@@ -50,6 +52,7 @@
 	
 	//	ResultSet 객체에 다음 데이터가 없을 때 까지 반복하며 얻어온 글 목록을 출력한다.
 	//	next(): ResultSet 객체에 저장된 다음 데이터로 접근한다. => 다음 데이터가 있으면 true, 없으면 false를 리턴한다.
+	/*
 	if (rs.next()) {
 		do {
 			out.println(rs.getInt("idx") + ", ");
@@ -63,7 +66,48 @@
 		//	테이블에 저장된 글이 없는 경우
 		out.println("테이블에 저장된 글이 없습니다.<br/>");
 	}
+	*/
 %>
+
+<!-- 테이블에서 얻어온 글 목록을 출력한다. -->
+<table width="1200" align="center" border="1" cellpadding="5" cellspacing="0">
+	<tr>
+		<th width="80">글 번호</th>
+		<th width="80">이름</th>
+		<th width="840">메모</th>
+		<th width="120">작성일</th>
+		<th width="80">ip</th>
+	</tr>
+	
+<%
+	if(rs.next()) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd(E)");
+		do {
+%>			
+	<tr>
+		<td align="center"><%=rs.getInt("idx") %></td>	
+		<td align="center"><%=rs.getString("name") %></td>	
+		<td><%=rs.getString("memo") %></td>	
+		<td align="center"><%=sdf.format(rs.getTimestamp("writeDate")) %></td>	
+		<td><%=rs.getString("ip") %></td>	
+	</tr>		
+			
+<%			
+		} while(rs.next());
+	} else {
+%>	
+
+	<tr>
+		<td colspan="5">
+			<marquee>테이블에 저장된 데이터가 없습니다.</marquee>
+		</td>
+	</tr>
+
+<%	
+	}
+%>	
+	
+</table>
 
 </body>
 </html>

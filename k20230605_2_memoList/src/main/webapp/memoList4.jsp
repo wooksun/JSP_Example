@@ -12,7 +12,44 @@
 
 <style type="text/css">
 
-	
+	tr {
+		height: 38px;
+	}
+
+	.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 40px;
+  height: 30px;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: none;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+.button2 {
+  background-color: tomato; 
+  color: white; 
+  border: none;
+  cursor: default;
+}
 
 </style>
 </head>
@@ -108,13 +145,14 @@
 	rs = pstmt.executeQuery();
 %>
 
-<table width="1200" align="center" border="1" cellpadding="5" cellspacing="0">
+<table width="1300" align="center" border="1" cellpadding="5" cellspacing="0">
 	<tr>
 		<th width="80">글 번호</th>
 		<th width="80">이름</th>
 		<th width="840">메모</th>
 		<th width="120">작성일</th>
 		<th width="80">ip</th>
+		<th width="100">&nbsp;</th>
 	</tr>
 	
 	<tr>
@@ -143,7 +181,7 @@
 				<input type="submit" value="보기"/>
 			</form>
 		</td>
-		<td colspan="2" align="right">
+		<td colspan="3" align="right">
 			<%=totalCount%>(<%=currentPage%> / <%=totalPage%>) 
 		</td>
 	</tr>
@@ -155,10 +193,18 @@
 %>			
 	<tr>
 		<td align="center"><%=rs.getInt("idx") %></td>	
-		<td align="center"><%=rs.getString("name") %></td>	
-		<td><%=rs.getString("memo") %></td>	
+		<td align="center"><%=rs.getString("name").replace("<", "&lt;").replace(">", "&gt;") %></td>	
+		<td><%=rs.getString("memo").replace("<", "&lt;").replace(">", "&gt;") %></td>	
 		<td align="center"><%=sdf.format(rs.getTimestamp("writeDate")) %></td>	
 		<td><%=rs.getString("ip") %></td>	
+		
+		<!-- 수정, 삭제 버튼 추가 -->
+		<td align="center">
+			<button type="button" 
+				onclick="location.href='memoUpdate.jsp?idx=<%=rs.getInt("idx")%>&currentPage=<%=currentPage%>'">수정</button>
+			<button type="button" 
+				onclick="location.href='memoDelete.jsp?idx=<%=rs.getInt("idx")%>&currentPage=<%=currentPage%>'">삭제</button>
+		</td>
 	</tr>		
 			
 <%			
@@ -167,7 +213,7 @@
 %>	
 
 	<tr>
-		<td colspan="5">
+		<td colspan="6">
 			<marquee>테이블에 저장된 데이터가 없습니다.</marquee>
 		</td>
 	</tr>
@@ -177,7 +223,7 @@
 %>	
 
 	<tr>
-		<td colspan="5" align="center">
+		<td colspan="6" align="center">
 		
 <%
 	startPage = (currentPage - 1) / 10 * 10 + 1;
@@ -188,6 +234,7 @@
 %>
 
 	<button 
+		class='button button1'
 		type="button" 
 		title="첫 페이지로 이동합니다." 
 		onclick="location.href='?currentPage=1'"
@@ -197,7 +244,12 @@
 	} else {
 %>
 
-	<button type="button" disabled="disabled" title="이미 첫 페이지 입니다.">처음</button>
+	<button 
+		class='button button2' 
+		type="button" 
+		disabled="disabled" 
+		title="이미 첫 페이지 입니다."
+		>처음</button>
 
 <% 	
 	}
@@ -206,6 +258,7 @@
 %>
 
 	<button 
+		class='button button1'
 		type="button" 
 		title="이전 10페이지로 이동합니다." 
 		onclick="location.href='?currentPage=<%=startPage - 1%>'"
@@ -215,16 +268,21 @@
 	} else {
 %>	
 	
-	<button type="button" disabled="disabled" title="이미 첫 10페이지 입니다.">이전</button>
+	<button 
+		class='button button2' 
+		type="button" 
+		disabled="disabled" 
+		title="이미 첫 10페이지 입니다."
+		>이전</button>
 	
 <% 	
 	}
 
 	for (int i=startPage; i<=endPage; i++) {
 		if (currentPage == i) {
-			out.println("<button type='button' disabled='disabled'>" + i + "</button>");
+			out.println("<button class='button button2' type='button' disabled='disabled'>" + i + "</button>");
 		} else {
-			out.println("<button type='button' title='" + i + 
+			out.println("<button class='button button1' type='button' title='" + i + 
 					" 페이지로 이동합니다.' onclick='location.href=\"?currentPage=" + i + "\"'>" + i + "</button>");
 		}
 	}
@@ -233,6 +291,7 @@
 %>
 
 	<button 
+		class='button button1'
 		type="button" 
 		title="다음 10페이지로 이동합니다." 
 		onclick="location.href='?currentPage=<%=endPage + 1%>'"
@@ -242,7 +301,12 @@
 	} else {
 %>			
 	
-	<button type="button" disabled="disabled" title="이미 마지막 10페이지 입니다.">다음</button>
+	<button 
+		class='button button2' 
+		type="button" 
+		disabled="disabled" 
+		title="이미 마지막 10페이지 입니다."
+		>다음</button>
 	
 <% 		
 	}
@@ -251,6 +315,7 @@
 %>
 
 	<button 
+		class='button button1'
 		type="button" 
 		title="마지막 페이지로 이동합니다." 
 		onclick="location.href='?currentPage=<%=totalPage%>'"
@@ -260,7 +325,12 @@
 	} else {
 %>
 
-	<button type="button" disabled="disabled" title="이미 마지막 페이지 입니다.">마지막</button>
+	<button 
+		class='button button2' 
+		type="button" 
+		disabled="disabled" 
+		title="이미 마지막 페이지 입니다."
+		>마지막</button>
 
 <% 	
 	}

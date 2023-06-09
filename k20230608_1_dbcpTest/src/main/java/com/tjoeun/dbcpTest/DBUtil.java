@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.management.RuntimeErrorException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 
 public class DBUtil {
@@ -37,6 +40,7 @@ public class DBUtil {
 		}
 	}
 	
+//	oracle에 연결하는 Connection을 리턴하는 메소드
 	public static Connection getOracleConnection() {
 		Connection conn = null;
 		try {
@@ -69,6 +73,20 @@ public class DBUtil {
 			System.out.println("드라이버 클래스가 없거나 읽어올 수 없습니다.");
 		} catch(Exception e) {
 			System.out.println("데이터베이스 접속 정보가 올바르지 않습니다.");
+		}
+		return conn;
+	}
+	
+//  tomcat DBCP를 사용해서 mysql 이나 oracle에 연결하는 Connection을 리턴하는 메소드
+	public static Connection getTomcatDBCPConnection() {
+		Connection conn = null;
+		try {
+			Context initContext = new InitialContext();
+			DataSource dataSource = (DataSource) initContext.lookup("java:/comp/env/jdbc/TestDB");
+			conn = dataSource.getConnection();
+			System.out.println("연결성공 : " + conn + "<br/>");
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 		return conn;
 	}

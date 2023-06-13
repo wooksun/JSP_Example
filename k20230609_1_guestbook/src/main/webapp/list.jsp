@@ -30,9 +30,36 @@
 	}
 	
 	//	카테고리와 검색어를 받는다. 
+	String category = request.getParameter("category"); // 카테고리
+	String item = request.getParameter("item"); // 검색어
+	//	넘어온 검색어가 있으면 카테고리와 검색어를 세션에 저장하고 넘어온 검색어가 없으면 세션에 저장된 카테고리와 검색어를 읽어온다.
+	if(item != null) {
+		session.setAttribute("category", category);
+		item = item.trim().length() == 0 ? "" : item;
+		session.setAttribute("item", item);
+	} else {
+		category = (String) session.getAttribute("category");
+		item = (String) session.getAttribute("item");
+	}
 	
-	//	브라우저에 표시할 1페이지 분량의 글 목록을 얻어오고 페이징 작업에 사용할 8개의 변수를 초기화시키는 메소드를 실행한다.
-	GuestbookList guestbookList = SelectService.getInstance().selectList(currentPage);
+	
+	//	브라우저 화면에 표시할 1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수를 초기화시키는 메소드를 얻어온다.
+	//	검색어가 넘어온 경우(내용, 이름, 내용 + 이름)와 넘어오지 않은 경우에 따른 메소드를 각각 실행한다.
+	SelectService service = SelectService.getInstance();
+	GuestbookList guestbookList = null;
+	if (item == null || item.trim().length() == 0) { // 검색어가 넘어 왔는가?
+		//	검색어가 입력되지 않은 경우
+		guestbookList = service.selectList(currentPage);
+	} else if(category.equals("내용")) { 
+		// 검색어가 입력되고 카테고리가 "내용"인 경우
+		guestbookList = service.selectListMemo(currentPage, item);
+	} else if(category.equals("이름")) { 
+		// 검색어가 입력되고 카테고리가 "이름"인 경우
+		//guestbookList = service.selectListName(currentPage, item);
+	} else if(category.equals("내용+이름")) { 
+		// 검색어가 입력되고 카테고리가 "내용+이름"인 경우
+		//guestbookList = service.selectListMemoName(currentPage, item);
+	}
 	
 	//	1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수 초기화 된 객체를 request 영역에 저장한다.
 	request.setAttribute("guestbookList", guestbookList);

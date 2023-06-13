@@ -127,19 +127,25 @@
 								/>
 								<br/>
 								
-								<!-- 메모에 태그가 먹지 않도록 replace 함수를 적용한다. -->
+								<!-- 메모에 태그가 먹지 않고, 줄이 바뀌도록 replace 함수를 적용한다. -->
 								<c:set var="memo" value="${fn:replace(vo.memo, '<', '&lt;')}"></c:set>
 								<c:set var="memo" value="${fn:replace(memo, '>', '&gt;')}"></c:set>
 								<c:set var="memo" value="${fn:replace(memo, enter, '<br/>')}"></c:set>
 								
-								${memo}
+								<!-- 내용에 포함된 검색어를 강조해서 표시한다. -->
+								<c:if test="${category == null || category == '이름'}">
+									${memo}
+								</c:if>
+								<c:if test="${category == '내용' || category == '내용 + 이름'}">
+									<c:set var="search" value="<span>${item}</span>"/>
+									${fn:replace(memo, item, search)}
+								</c:if>
+								
 							</td>
 						</tr>
 					</table>
 				</c:forEach>
-				
 			</c:if>
-			
 		</td>
 	</tr>
 	<!-- 페이지 이동 버튼 -->
@@ -231,6 +237,21 @@
 				>마지막</button>
 			</c:if>
 			
+		</td>
+	</tr>
+	
+	<!-- 카테고리별 검색어를 입력받는다. -->
+	<tr>
+		<td align="center">
+			<form action="list.jsp" method="post">
+				<select name="category" style="width: 100px; height: 30px;">
+					<option>내용</option>
+					<option>이름</option>
+					<option>내용 + 이름</option>
+				</select>
+				<input type="text" name="item" value="${item}" style="width: 200px; height: 25px; padding-left: 10px;"/>
+				<input class="button button1" type="submit" value="검색"/>
+			</form>
 		</td>
 	</tr>
 		

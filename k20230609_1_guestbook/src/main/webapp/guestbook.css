@@ -47,7 +47,11 @@ table {
   cursor: default;
 }
 
-
+span {
+	color: red;
+	font-weight: bold;
+	background-color: dodgerblue;
+}
 
 
 

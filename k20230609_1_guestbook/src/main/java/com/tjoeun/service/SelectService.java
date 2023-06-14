@@ -117,6 +117,99 @@ public class SelectService {
 		}
 		
 		return guestbookList;
+		
 	}
 	
+//	list.jsp에서 호출되는 브라우저에 표시할 페이지 번호와 검색어(이름)를 넘겨받고, mapper를 얻어온 후, GuestbookDAO 클래스의 1페이지
+//	분량의 검색어를 포함하는 글 목록을 얻어오는 select sql 명령을 실행하는 메소드를, 호출하는 메소드
+	public GuestbookList selectListName(int currentPage, String item) {
+		System.out.println("SelectService 클래스의 selectListName() 메소드 실행");
+		SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
+		GuestbookList guestbookList = null;
+		GuestbookDAO dao = GuestbookDAO.getInstance();
+		
+		try {
+			int pageSize = 10;
+//			내용에 검색어(내용)를 포함하는 글의 개수를 얻어온다.
+			int totalCount = dao.selectCountName(mapper, item);
+			System.out.println(totalCount);
+			guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
+			
+			Param param = new Param();
+			param.setStartNo(guestbookList.getStartNo());
+			param.setEndNo(guestbookList.getEndNo());
+			param.setItem(item);
+			System.out.println(param); 
+			
+			guestbookList.setList(dao.selectListName(mapper, param));
+			System.out.println(guestbookList);
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return guestbookList;
+	}
+	
+//	list.jsp에서 호출되는 브라우저에 표시할 페이지 번호와 검색어(내용+이름)를 넘겨받고, mapper를 얻어온 후, GuestbookDAO 클래스의 1페이지
+//	분량의 검색어를 포함하는 글 목록을 얻어오는 select sql 명령을 실행하는 메소드를, 호출하는 메소드
+	public GuestbookList selectListMemoName(int currentPage, String item) {
+		System.out.println("SelectService 클래스의 selectListMemoName() 메소드 실행");
+		SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
+		GuestbookList guestbookList = null;
+		GuestbookDAO dao = GuestbookDAO.getInstance();
+		
+		try {
+			int pageSize = 10;
+//			내용에 검색어(내용+이름)를 포함하는 글의 개수를 얻어온다.
+			int totalCount = dao.selectCountMemoName(mapper, item);
+			System.out.println(totalCount);
+			guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
+			
+			Param param = new Param();
+			param.setStartNo(guestbookList.getStartNo());
+			param.setEndNo(guestbookList.getEndNo());
+			param.setItem(item);
+			System.out.println(param); 
+			
+			guestbookList.setList(dao.selectListMemoName(mapper, param));
+			System.out.println(guestbookList);
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return guestbookList;
+	}
+	
+//	list.jsp에서 호출되는 브라우저에 표시할 페이지 번호와 카테고리(내용, 이름, 내용+이름)를 넘겨받고, mapper를 얻어온 후, 
+//	GuestbookDAO 클래스의 1페이지 분량의 카테고리에 따른 검색어를 포함하는 글 목록을 얻어오는 select sql 명령을 실행하는 메소드를, 
+//	호출하는 메소드
+	public GuestbookList selectListMulti(int currentPage, String category, String item) {
+		System.out.println("SelectService 클래스의 selectListMulti() 메소드 실행");
+		SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
+		GuestbookList guestbookList = null;
+		GuestbookDAO dao = GuestbookDAO.getInstance();
+		
+		try {
+			int pageSize = 10;
+//			카테고리에 따른 검색어를 포함하는 글의 개수를 얻어온다.
+			
+			//	카테고리에 따른 검색어 포함되었나 조건을 세워야하기 때문에 Param 클래스 객체를 사용한다.
+			Param param = new Param(); 
+			param.setCategory(category);
+			param.setItem(item);
+			int totalCount = dao.selectCountMulti(mapper, param);
+			System.out.println(totalCount);
+			
+			guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
+			param.setStartNo(guestbookList.getStartNo());
+			param.setEndNo(guestbookList.getEndNo()); param.setItem(item);
+			guestbookList.setList(dao.selectListMulti(mapper, param));
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return guestbookList;
+	}
 }

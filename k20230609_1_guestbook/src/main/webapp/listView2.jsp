@@ -89,7 +89,17 @@
 								<!-- 이름에 태그가 먹지 않도록 replace 함수를 적용한다. -->
 								<c:set var="name" value="${fn:replace(vo.name, '<', '&lt;')}"></c:set>
 								<c:set var="name" value="${fn:replace(name, '>', '&gt;')}"></c:set>
-								${name}님이
+								
+								<!-- 이름에 포함된 검색어를 강조해서 표시한다. -->
+								<c:if test="${category == null || category == '내용'}">
+									${name}
+								</c:if>
+								<c:if test="${category == '이름' || category == '내용+이름'}">
+									<c:set var="search" value="<span>${item}</span>"/>
+									<!-- name에 저장된 모든 검색어를 search로 치환해서 출력한다. -->
+									${fn:replace(name, item, search)}
+								</c:if>
+								님이
 								
 								<!-- 오늘 작성된 글은 시간만, 어제 작성된 글은 날짜만 출력한다. -->
 								<!-- 
@@ -138,6 +148,7 @@
 								</c:if>
 								<c:if test="${category == '내용' || category == '내용 + 이름'}">
 									<c:set var="search" value="<span>${item}</span>"/>
+									<!-- memo에 저장된 모든 검색어를 search로 치환해서 출력한다. -->
 									${fn:replace(memo, item, search)}
 								</c:if>
 								
@@ -247,7 +258,7 @@
 				<select name="category" style="width: 100px; height: 30px;">
 					<option>내용</option>
 					<option>이름</option>
-					<option>내용 + 이름</option>
+					<option>내용+이름</option>
 				</select>
 				<input type="text" name="item" value="${item}" style="width: 200px; height: 25px; padding-left: 10px;"/>
 				<input class="button button1" type="submit" value="검색"/>

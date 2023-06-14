@@ -47,6 +47,9 @@
 	//	검색어가 넘어온 경우(내용, 이름, 내용 + 이름)와 넘어오지 않은 경우에 따른 메소드를 각각 실행한다.
 	SelectService service = SelectService.getInstance();
 	GuestbookList guestbookList = null;
+	
+	//	검색어가 없는 경우와, 검색어가 있을 때 카테고리가 내용, 이름, 내용+이름은 경우를 각각 메소드로 구현한다.
+	/* 
 	if (item == null || item.trim().length() == 0) { // 검색어가 넘어 왔는가?
 		//	검색어가 입력되지 않은 경우
 		guestbookList = service.selectList(currentPage);
@@ -55,12 +58,22 @@
 		guestbookList = service.selectListMemo(currentPage, item);
 	} else if(category.equals("이름")) { 
 		// 검색어가 입력되고 카테고리가 "이름"인 경우
-		//guestbookList = service.selectListName(currentPage, item);
+		guestbookList = service.selectListName(currentPage, item);
 	} else if(category.equals("내용+이름")) { 
 		// 검색어가 입력되고 카테고리가 "내용+이름"인 경우
-		//guestbookList = service.selectListMemoName(currentPage, item);
+		guestbookList = service.selectListMemoName(currentPage, item);
 	}
-	
+	*/
+	 
+	//	검색어가 있는 경우와 검색어가 없는 경우로 메소드를 구현한다.
+  	if (item == null || item.trim().length() == 0) { // 검색어가 넘어 왔는가?
+		//	검색어가 입력되지 않은 경우
+		guestbookList = service.selectList(currentPage);
+	} else { 
+		//	검색어가 입력된 경우
+		guestbookList = service.selectListMulti(currentPage, category, item);
+	} 
+	 
 	//	1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수 초기화 된 객체를 request 영역에 저장한다.
 	request.setAttribute("guestbookList", guestbookList);
 	

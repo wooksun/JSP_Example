@@ -70,13 +70,111 @@
 	<select id="selectListMemo" parameterClass="param" resultClass="vo">
          <![CDATA[
       select * from (
-         select rownum rnum, GG.* from (
+         select rownum rnum, AA.* from (
             select * from GUESTBOOK where MEMO like '%'||#item#||'%' order by IDX desc
+        ) AA where rownum <= #endNo#
+     ) where rnum >= #startNo#
+      ]]>
+	</select>
+	
+	<!-- name 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectCountName" parameterClass="String" resultClass="int">
+		select count (*) from guestbook where name like '%'||#item#||'%'
+	</select>
+	
+    <!-- name 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectListName" parameterClass="param" resultClass="vo">
+         <![CDATA[
+      select * from (
+         select rownum rnum, GG.* from (
+            select * from GUESTBOOK where name like '%'||#item#||'%' order by IDX desc
         ) GG where rownum <= #endNo#
      ) where rnum >= #startNo#
       ]]>
 	</select>
-      
+	
+	<!-- memo 필드와 name 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectCountMemoName" parameterClass="String" resultClass="int">
+		select count (*) from guestbook where memo like '%'||#item#||'%' or name like '%'||#item#||'%'
+	</select>
+	
+	 <!-- memo 필드와 name 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectListMemoName" parameterClass="param" resultClass="vo">
+         <![CDATA[
+      select * from (
+         select rownum rnum, KK.* from (
+            select * from GUESTBOOK where memo like '%'||#item#||'%' or name like '%'||#item#||'%' order by IDX desc
+        ) KK where rownum <= #endNo#
+     ) where rnum >= #startNo#
+      ]]>
+	</select>
+	
+	<!-- 카테고리별 검색어를 포함하는 글의 개수를 얻어온다. => 동적 쿼리 사용 -->
+	<select id="selectCountMulti" parameterClass="param" resultClass="int"> 
+		<!-- 
+			ibatis 동적 쿼리 - https://hellogk.tistory.com/100 참조
+			<isEqual> 태그를 사용해 sql 명령의 실행 조건을 지장할 수 있다.
+			property 속성에는 parameterClass로 넘어온 조건을 비교할 필드 이름을 적는다.
+			compareValue 속성에는 property 속성에 지정한 필드의 저장된 내용과 비교할 값을 적는다.
+		-->
+		
+		<!-- param 클래스의 catagory 필드에 "내용"이라고 저장되어 있으면 실행한다. -->
+		<!-- 
+			<isEqual property="category" compareValue="내용">
+				select count (*) from guestbook where memo like '%'||#item#||'%'
+			</isEqual> 
+		-->
+		
+		<!-- param 클래스의 catagory 필드에 "이름"이라고 저장되어 있으면 실행한다. -->
+		<!-- 
+			<isEqual property="category" compareValue="내용">
+				select count (*) from guestbook where name like '%'||#item#||'%'
+			</isEqual> 
+		-->
+		
+		<!-- param 클래스의 catagory 필드에 "내용+이름"이라고 저장되어 있으면 실행한다. -->
+		<!-- 
+			<isEqual property="category" compareValue="내용+이름">
+				select count (*) from guestbook where memo like '%'||#item#||'%' or name like '%'||#item#||'%'
+			</isEqual> 
+		-->
+		
+		<!-- 변경되지 않는 sql 명령문은 따로 작업해두면 편리 -->
+		select count (*) from guestbook where
+		<isEqual property="category" compareValue="내용">
+			memo like '%'||#item#||'%'
+		</isEqual> 
+		<isEqual property="category" compareValue="이름">
+			name like '%'||#item#||'%'
+		</isEqual> 
+		<isEqual property="category" compareValue="내용+이름">
+			memo like '%'||#item#||'%' or name like '%'||#item#||'%'
+		</isEqual> 
+	</select>
+	
+	<!-- 카테고리별 검색어를 포함하는 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectListMulti" parameterClass="param" resultClass="vo">
+      select * from (
+         select rownum rnum, KK.* from (
+            select * from GUESTBOOK where 
+            
+            <isEqual property="category" compareValue="내용">
+				memo like '%'||#item#||'%' 
+			</isEqual> 
+			<isEqual property="category" compareValue="이름">
+				name like '%'||#item#||'%' 
+			</isEqual> 
+			<isEqual property="category" compareValue="내용+이름">
+				memo like '%'||#item#||'%' or name like '%'||#item#||'%' 
+			</isEqual> 
+            
+            order by IDX desc
+            
+	<![CDATA[
+        ) KK where rownum <= #endNo#
+     ) where rnum >= #startNo#
+      ]]>
+	</select>
 	
 </sqlMap>
 

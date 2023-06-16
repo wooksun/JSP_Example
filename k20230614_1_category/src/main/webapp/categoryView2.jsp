@@ -54,7 +54,7 @@
 				<c:forEach var="i" begin="1" end="${vo.lev}" step="1">
 					&nbsp;&nbsp;&nbsp;&nbsp;
 				</c:forEach>
-				Re.
+					Re.
 				<!-- <img src="./images/arrow2.png" > -->
 			</c:if>
 			<c:if test="${vo.deleteCheck == 'YES'}">

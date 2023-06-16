@@ -75,6 +75,23 @@
 		update category set deleteReport = deleteReport + 1 where idx = #{idx}
 	</update>
 	
+	<!-- 삭제할 카테고리와 삭제할 카테고리의 모든 서브 카테고리 목록을 얻어온다. -->
+	<select id="deleteList" parameterType="vo" resultType="vo">
+		select * from category where gup = #{gup} and lev > #{lev} and seq > #{seq} or idx = #{idx} 
+		order by gup desc, seq asc
+	</select>
+	
+	<!-- 삭제한 카테고리 그룹에 해당되는 카테고리 목록을 얻어온다. -->
+	<select id="selectGup" parameterType="int" resultType="vo">
+		select * from category where gup = #{gup} order by gup desc, seq asc
+	</select>
+	
+	<!--  -->
+	<update id="reSeq" parameterType="java.util.HashMap">
+		update category set seq = #{i} where idx = #{idx}
+	</update>
+	
+	
 </mapper>
 
 

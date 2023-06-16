@@ -85,7 +85,7 @@ $(() => {
 
 
 //	수정 버튼이 클릭되면 update.jsp로 폼에 입력된 데이터를 전송하는 함수
-function mySubmitUpdate() {
+function mySubmitUpdate(obj) {
 	if (!obj.category.value || obj.category.value.trim().length == 0) {
 		alert('수정할 카테고리를 입력하세요');
 		obj.category.value = '';

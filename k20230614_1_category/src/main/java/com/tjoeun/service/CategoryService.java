@@ -1,5 +1,6 @@
 package com.tjoeun.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
@@ -170,4 +171,42 @@ public class CategoryService {
 		mapper.close();
 	}
 	
+	//	delete.jsp에서 호출되는 삭제할 카테고리 정보가 저장된 객체를 넘겨받고, mapper를 얻어온 후, CategoryDAO 클래스의 삭제할 
+	//	카테고리 목록을 얻어오는 select sql 명령을 실행하는 메소드를 호출하는 메소드
+	public ArrayList<CategoryVO> deleteList(CategoryVO vo) {
+		System.out.println("CategoryService 클래스의 deleteList() 메소드 실행");
+		SqlSession mapper = MySession.getSession();
+		
+		ArrayList<CategoryVO> deleteList = CategoryDAO.getInstance().deleteList(mapper, vo);
+		
+		mapper.close();
+		return deleteList;
+	}
+	
+	//	delete.jsp에서 호출되는 seq를 다시 부여할 카테고리 그룹(gup)을 넘겨받고, mapper를 얻어온 후, CategoryDAO 클래스의 삭제한 
+	//	카테고리 그룹에 seq를 0부터 1씩 증가하게 다시 부여하는 update sql 명령을 실행하는 메소드를 호출하는 메소드
+	public void reSeq(int gup) {
+		System.out.println("CategoryService 클래스의 reSeq() 메소드 실행");
+		SqlSession mapper = MySession.getSession();
+		CategoryDAO dao = CategoryDAO.getInstance();
+		
+		//	seq를 다시 부여할 카테고리 그룹만 얻어와서 ArrayList에 저장한다.
+		ArrayList<CategoryVO> gupList = dao.selectGup(mapper, gup);
+		//	ArrayList로 얻어온 카테고리 그룹의 카테고리 개수만큼 반복하며 seq를 0부터 다시 부여한다.
+		for(int i=0; i<gupList.size(); i++) {
+			//	seq를 수정할 카테고리 일련번호(idx)와 seq를 수정할 데이터(i)를 HashMap 객체에 저장한다.
+			HashMap<String, Integer> hmap = new HashMap<>();
+			hmap.put("idx", gupList.get(i).getIdx()); // 조건
+			hmap.put("i", i); // 수정
+			dao.reSeq(mapper, hmap);
+		}
+		
+		for (CategoryVO vo : gupList) {
+			System.out.println(vo);
+		}
+		
+		
+		mapper.commit();
+		mapper.close();
+	}
 }

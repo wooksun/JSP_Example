@@ -13,10 +13,28 @@
 <link >
 </head>
 <body>
-<div >
-	<table class="table" style="background-color: #6E6E6E; color: #F2F2F2;">
-		<tr style="background-color: #6E6E6E; color: #F2F2F2; text-align: center;">
-			<td class="top1">프로젝트로고(메인)</td>
+<!-- 애플 div -->
+<!-- 
+<div id="globalheader">
+	<nav id="globalnav" style="background-color: rgba(22, 22, 23, .8);">
+		<div class="globalnav-content" style="background-color: rgba(22, 22, 23, .8);"> 
+			<ul id="globalnav-list" class="globalnav-list">
+				<li>
+					<a class="globalnav-link globalnav-link-apple">메인페이지(로고)</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+ -->
+
+<div>
+	<table class="table" style="background-color: #585858; color: #F2F2F2;">
+		<tr style="background-color: #585858; color: #F2F2F2; text-align: center;">
+			<td 
+				class="top1"
+				onclick="location.href='main.jsp'"
+				>프로젝트로고(메인)</td>
 			<td class="top1">Mac</td>
 			<td class="top1">iPhone</td>
 			<td class="top1">MacBook</td>
@@ -24,11 +42,23 @@
 			<td class="top1">Watch</td>
 			<td class="top1">엔터테이먼트</td>
 			<td class="top1">고객지원</td>
-			<td class="top1">검색창 아이콘</td>
-			<td class="top1">장바구니 아이콘</td>
+			<td class="top1">
+				<img src="./images/search.png"/>
+			</td>
+			<td class="top1">
+				<img src="./images/shopping-cart.png"/>
+			</td>
 		</tr>
 	</table>
+	<div 
+		style="text-align: center; 
+		display: flex; 
+		align-items: center; 
+		justify-content: center;
+		background-color: #FAFAFA;"
+		>테스트 웹사이트 전용 메인 문구입니다.</div>
 </div>
+
 
 </body>
 </html>

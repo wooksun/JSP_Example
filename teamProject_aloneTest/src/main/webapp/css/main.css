@@ -1,6 +1,74 @@
+/* 애플 css */
+/* 
+#globalheader {
+    all: unset;
+}
+
+#globalnav {
+    --r-globalnav-flyout-close-delay: .12s;
+    --r-globalnav-flyout-link-opacity-duration: .5s;
+    --r-globalnav-flyout-spacing: 88px;
+    --r-globalnav-next-flyout-height: 0px;
+    --r-globalnav-previous-flyout-height: 0px;
+    --r-globalnav-height: 44px;
+    --r-globalnav-color: rgba(0, 0, 0, .8);
+    --r-globalnav-color-secondary: #333336;
+    --r-globalnav-color-hover: #000000;
+    --r-globalnav-font-size: 17px;
+    --globalnav-background: none;
+    --globalnav-backdrop-filter: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    display: block;
+    margin: 0;
+    width: 100%;
+    min-width: 320px;
+    height: 48px;
+    max-height: 44px;
+    font-size: 17px;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-backdrop-filter: var(--globalnav-backdrop-filter);
+    backdrop-filter: var(--globalnav-backdrop-filter);
+}
+
+#globalnav .globalnav-content {
+    padding-left: max(22px,env(safe-area-inset-left));
+    padding-right: max(22px,env(safe-area-inset-right));
+}
+
+#globalnav .globalnav-list {
+    cursor: default;
+    margin: 0 -8px;
+    width: auto;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    -webkit-user-select: none;
+    user-select: none;
+    list-style: none;
+}
+
+#globalnav .globalnav-link-apple {
+    font-size: 17px;
+    line-height: 1.2353641176;
+    font-weight: 600;
+    letter-spacing: -.022em;
+    font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    display: flex;
+    align-items: center;
+}
+ */
+ 
+ 
 .top1 {
 	font-size: 15px;
+	cursor: pointer;
 	display: inline-block;
+	align-items: center;
 	flex-direction: row; 
 	justify-content: space-between;
 	border-spacing: 10px;
@@ -8,5 +76,15 @@
 }
 
 .top1:hover {
-	animation: slidedown;
+	
 }
+
+
+
+
+
+
+
+
+
+

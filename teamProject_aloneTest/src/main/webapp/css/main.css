@@ -1,0 +1,12 @@
+.top1 {
+	font-size: 15px;
+	display: inline-block;
+	flex-direction: row; 
+	justify-content: space-between;
+	border-spacing: 10px;
+  	border-collapse: separate;
+}
+
+.top1:hover {
+	animation: slidedown;
+}

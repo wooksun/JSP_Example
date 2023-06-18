@@ -63,6 +63,11 @@
 }
  */
  
+
+
+.table:hover .top1 {
+	 top: 0;
+}
  
 .top1 {
 	font-size: 15px;
@@ -75,9 +80,19 @@
   	border-collapse: separate;
 }
 
-.top1:hover {
-	
+.main1 .main1-content {
+	padding-left: max(22px,env(safe-area-inset-left));
+    padding-right: max(22px,env(safe-area-inset-right));
+	margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1024px;
+    padding: 0 22px;
 }
+
+
+
+
 
 
 

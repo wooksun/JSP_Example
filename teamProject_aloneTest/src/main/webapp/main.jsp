@@ -35,29 +35,42 @@
 				class="top1"
 				onclick="location.href='main.jsp'"
 				>프로젝트로고(메인)</td>
-			<td class="top1">Mac</td>
-			<td class="top1">iPhone</td>
-			<td class="top1">MacBook</td>
-			<td class="top1">iPad</td>
-			<td class="top1">Watch</td>
-			<td class="top1">엔터테이먼트</td>
-			<td class="top1">고객지원</td>
-			<td class="top1">
+			<td class="top1" onclick="location.href='main.jsp'">Mac</td>
+			<td class="top1" onclick="location.href='main.jsp'">iPhone</td>
+			<td class="top1" onclick="location.href='main.jsp'">MacBook</td>
+			<td class="top1" onclick="location.href='main.jsp'">iPad</td>
+			<td class="top1" onclick="location.href='main.jsp'">Watch</td>
+			<td class="top1" onclick="location.href='main.jsp'">엔터테이먼트</td>
+			<td class="top1" onclick="location.href='main.jsp'">고객지원</td>
+			<td class="top1" onclick="location.href='main.jsp'">
 				<img src="./images/search.png"/>
 			</td>
-			<td class="top1">
+			<td class="top1" onclick="location.href='main.jsp'">
 				<img src="./images/shopping-cart.png"/>
 			</td>
 		</tr>
 	</table>
-	<div 
+	<section 
 		style="text-align: center; 
 		display: flex; 
 		align-items: center; 
 		justify-content: center;
-		background-color: #FAFAFA;"
-		>테스트 웹사이트 전용 메인 문구입니다.</div>
+		margin-top: auto;
+		background-color: #FAFAFA;">
+		<marquee>※ 메인 페이지에 보여질 메인 설명입니다. ※</marquee>	
+	</section>
 </div>
+
+<div class="main1">
+	<a href="?">
+		<img alt="testPic" src="./images/mypic.jpg" style="width:100%; position: absolute; left: 0px; top: 0px; z-index: -1;">
+	</a>
+	<div class="main1-content">
+		<h2 style="color: white; text-align: center;">메인 상품 및 홈페이지 간략한 문구</h2>
+		<h3 style="color: white; text-align: center;">간략한 문구 아래 덧붙일 추구할 내용</h3>
+	</div>
+</div>
+
 
 
 </body>

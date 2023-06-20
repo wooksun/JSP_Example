@@ -76,11 +76,11 @@
             <!-- 공지글 -->
             <th class="align-middle table-dark"  width="100" style="text-align: center;">
 				공지글
-				<c:if test="${fn:trim(vo.notice) == 'YES'}"> <!-- 공지글인가? -->
+				<c:if test="${fn:trim(vo.notice) == 'on'}"> <!-- 공지글인가? -->
 					<input class="form-check-input" type="checkbox" name="notice" checked="checked"/>
 				</c:if>
-				<c:if test="${fn:trim(vo.notice) != 'YES'}"> <!-- 일반글인가?? -->
-					<input class="form-check-input" type="checkbox" name="notice" value="YES">
+				<c:if test="${fn:trim(vo.notice) != 'on'}"> <!-- 일반글인가?? -->
+					<input class="form-check-input" type="checkbox" name="notice"/>
 				</c:if>
 			</th>
          </tr>

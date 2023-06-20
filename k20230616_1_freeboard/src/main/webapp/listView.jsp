@@ -69,8 +69,8 @@
 					
 					<td align="center">
 						<!-- 이름 -->
-						<c:set var="subject" value="${fn:replace(vo.name, '<', '&lt;')}"/>
-						<c:set var="subject" value="${fn:replace(name, '>', '&gt;')}"/>
+						<c:set var="name" value="${fn:replace(vo.name, '<', '&lt;')}"/>
+						<c:set var="name" value="${fn:replace(name, '>', '&gt;')}"/>
 						${vo.name}
 					</td>
 					

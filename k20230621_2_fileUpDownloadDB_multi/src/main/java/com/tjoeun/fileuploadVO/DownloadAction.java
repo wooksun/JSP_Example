@@ -65,6 +65,7 @@ public class DownloadAction extends HttpServlet {
 		outputStream.close();
 		fileInputStream.close();
 		
-		
+		//	다운로드가 완료되면 다운로드 횟수를 증가시킨다.
+		new FileDAO().hit(fileRealname);
 	}
 }

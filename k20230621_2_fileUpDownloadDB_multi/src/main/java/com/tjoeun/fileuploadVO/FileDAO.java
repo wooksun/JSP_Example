@@ -65,4 +65,17 @@ public class FileDAO {
 		//	업로드 된 파일 목록을 리턴시킨다.
 		return list;
 	}
+
+	//	파일 다운로드가 완료되면 다운로드 횟수를 1증가시키는 메소드
+	public void hit(String fileRealname) {
+		System.out.println("FileDAO 클래스의 hit() 메소드 실행");
+		try {
+			String sql = "update fileupload set downloadcount = downloadcount + 1 where fileRealname = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, fileRealname);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }

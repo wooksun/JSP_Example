@@ -35,7 +35,7 @@
 				class="top1"
 				onclick="location.href='main.jsp'"
 				>프로젝트로고(메인)</td>
-			<td class="top1" onclick="location.href='main.jsp'">Mac</td>
+			<td class="top1" onclick="location.href='write.jsp'">Mac</td>
 			<td class="top1" onclick="location.href='main.jsp'">iPhone</td>
 			<td class="top1" onclick="location.href='main.jsp'">MacBook</td>
 			<td class="top1" onclick="location.href='main.jsp'">iPad</td>

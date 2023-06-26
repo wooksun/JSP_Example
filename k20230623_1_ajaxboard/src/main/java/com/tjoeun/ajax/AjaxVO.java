@@ -7,6 +7,8 @@ public class AjaxVO {
 	private String gender;
 	private String email;
 	
+	public AjaxVO() { }
+	
 	//	getters & setters
 	public int getIdx() {
 		return idx;

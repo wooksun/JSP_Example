@@ -1,0 +1,40 @@
+a {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div {
+	position: absolute;
+	background-color: skyblue;
+	margin-left: 200px;
+	top: 72px;
+	width: 700px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 2px solid hotpink;
+}
+
+#normal {
+	background-color: tomato;
+	width: 150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#list {
+	background-color: yellowgreen;
+	width: 150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#list2 {
+	background-color: dodgerblue;
+	width: 150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+

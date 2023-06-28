@@ -7,7 +7,7 @@
 </head>
 <body>
 
-GitTest
+GitTest // 원상 복구
 
 </body>
 </html>

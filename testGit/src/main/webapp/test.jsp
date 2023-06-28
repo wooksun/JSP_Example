@@ -8,7 +8,6 @@
 <body>
 
 GitTest
-GitTest2 // 이 부분은 깃에서 수정
 
 </body>
 </html>

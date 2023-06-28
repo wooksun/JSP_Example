@@ -7,8 +7,7 @@
 </head>
 <body>
 
-GitTest
-GitTest2 // 이 부분은 깃에서 수정
+GitTest // 원상 복구
 
 </body>
 </html>
